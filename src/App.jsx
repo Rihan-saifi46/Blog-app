@@ -148,4 +148,16 @@ const deletePost = async (id) => {
                   <p className="text-gray-600 mb-4 line-clamp-3">
                     {post.content}
                   </p>
-                 
+                   <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                    <span className="font-medium text-blue-600">{post.author}</span>
+                    <span>{formatDate(post.createdAt)}</span>
+                  </div>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => openModal(post)}
+                      className="flex-1 flex items-center justify-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-100 transition-colors"
+                    >
+                      <Edit size={16} />
+                      Edit
+                    </button>
+                  
