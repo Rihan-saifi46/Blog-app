@@ -79,4 +79,61 @@ const loadPosts = async () => {
   }
 };
 
+const deletePost = async (id) => {
+  if (window.confirm('Kya aap sure hain ki aap is post ko delete karna chahte hain?')) {
+    try {
+      localStorage.removeItem(`post:${id}`);
+      setPosts(posts.filter(p => p.id !== id));
+    } catch (error) {
+      console.error('Error deleting post:', error);
+    }
+  }
+};
 
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('hi-IN', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <header className="bg-white shadow-md sticky top-0 z-10">
+        <div className="max-w-6xl mx-auto px-4 py-6 flex justify-between items-center">
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Mera Blog
+          </h1>
+          <button
+            onClick={() => openModal()}
+            className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+          >
+            <Plus size={20} />
+            Naya Post
+          </button>
+        </div>
+      </header>
+
+      <main className="max-w-6xl mx-auto px-4 py-8">
+        {posts.length === 0 ? (
+          <div className="text-center py-20">
+            <div className="text-gray-400 text-6xl mb-4">📝</div>
+            <h2 className="text-2xl font-semibold text-gray-600 mb-2">
+              Koi post nahi hai
+            </h2>
+            <p className="text-gray-500 mb-6">
+              Apna pehla blog post banaye!
+            </p>
+            <button
+              onClick={() => openModal()}
+              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg hover:shadow-lg transition-all"
+            >
+              Shuru Karein
+            </button>
+          </div>
+        ) : (
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          
