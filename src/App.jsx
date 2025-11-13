@@ -189,5 +189,31 @@ const deletePost = async (id) => {
                 <X size={24} />
               </button>
             </div>
+            <div className="p-6 space-y-6">
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  Title
+                </label>
+                <input
+                  type="text"
+                  value={formData.title}
+                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                  placeholder="Apne post ka title likhen..."
+                />
+              </div>
 
-            
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  Content
+                </label>
+                <textarea
+                  value={formData.content}
+                  onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none"
+                  rows="8"
+                  placeholder="Apni kahani likhen..."
+                />
+              </div>
+
+           
