@@ -136,4 +136,16 @@ const deletePost = async (id) => {
           </div>
         ) : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          
+          {posts.map((post) => (
+              <article
+                key={post.id}
+                className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1"
+              >
+                <div className="p-6">
+                  <h2 className="text-xl font-bold text-gray-800 mb-3 line-clamp-2">
+                    {post.title}
+                  </h2>
+                  <p className="text-gray-600 mb-4 line-clamp-3">
+                    {post.content}
+                  </p>
+                 
