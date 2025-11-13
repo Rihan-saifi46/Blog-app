@@ -227,7 +227,28 @@ const deletePost = async (id) => {
                   placeholder="Aapka naam..."
                 />
               </div>
-
+<div className="flex gap-3 pt-4">
+                <button
+                  onClick={closeModal}
+                  className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleSubmit}
+                  className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg hover:shadow-lg transition-all"
+                >
+                  <Save size={20} />
+                  {editingPost ? 'Update Karein' : 'Publish Karein'}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}     
            
             
            
